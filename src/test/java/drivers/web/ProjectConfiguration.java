@@ -2,15 +2,11 @@ package drivers.web;
 
 import com.codeborne.selenide.Configuration;
 import configs.web.WebConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class ProjectConfiguration {
-    private final WebConfig config;
-
-    public ProjectConfiguration(WebConfig webConfig) {
-        config = webConfig;
-    }
-
+    private final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
     public void configure() {
         System.out.println(config.isRemote());
