@@ -1,14 +1,18 @@
 package drivers.web;
 
 import com.codeborne.selenide.Configuration;
-import configs.web.WebDriverConfig;
-import configs.web.ConfigReader;
+import configs.web.WebConfig;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class WebDriver {
-    private static final WebDriverConfig config = ConfigReader.Instance.read();
+public class ProjectConfiguration {
+    private final WebConfig config;
 
-    public static void configure() {
+    public ProjectConfiguration(WebConfig webConfig) {
+        config = webConfig;
+    }
+
+
+    public void configure() {
         Configuration.timeout = config.timeout();
         Configuration.browser = config.getBrowser();
         Configuration.browserSize = config.browserSize();
