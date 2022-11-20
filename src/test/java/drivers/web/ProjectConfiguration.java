@@ -13,6 +13,7 @@ public class ProjectConfiguration {
 
 
     public void configure() {
+        System.out.println(config.isRemote());
         Configuration.timeout = config.timeout();
         Configuration.browser = config.getBrowser();
         Configuration.browserSize = config.browserSize();

@@ -2,10 +2,9 @@ package configs.web;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:web/${env}.properties"
+        "classpath:web/local.properties"
 })
 public interface WebConfig extends Config {
     @Key("browser")
