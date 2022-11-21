@@ -26,13 +26,15 @@ public class RegistrationPage {
 
     @Step("Check privacy policy")
     public RegistrationPage checkPrivacyPolicy() {
-        $("#sign_up_email[terms_of_service]").click();
+       // $("#sign_up_email[terms_of_service]").click();
+        System.out.println($("#sign_up_email[terms_of_service]"));
         return this;
     }
 
     @Step("Submit")
     public ConfirmationPage submit() {
-        $("btn_signin").click();
+       // $("btn_signin").click();
+        System.out.println($("btn_signin"));
         return new ConfirmationPage();
     }
 }
