@@ -51,6 +51,4 @@ public class ApiTest extends TestBase {
 
         assertThat(data.getCreatedAt()).contains(expectedDate);
     }
-
-
 }
