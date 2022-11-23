@@ -5,19 +5,15 @@ import drivers.mobile.LocalMobileDriver;
 import drivers.mobile.RemoteMobileDriver;
 import drivers.web.WebDriver;
 import helpers.Attach;
-import lombok.SneakyThrows;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.sessionId;
 
 public class ConfigRunner {
-   private final String platform = getProperty("platform");
-   private final String isRemote = getProperty("isRemote");
+   private final String platform = System.getProperty("platform");
+   private final String isRemote = System.getProperty("isRemote");
 
     public void runBeforeAllPlatformConfiguration() {
-        System.out.println(platform);
         switch (platform) {
             case "web":
                 WebDriver driver = new WebDriver();
@@ -52,15 +48,5 @@ public class ConfigRunner {
                 }
                 break;
         }
-    }
-
-    @SneakyThrows
-    private String getProperty(String key) {
-        FileInputStream fis;
-        Properties property = new Properties();
-        fis = new FileInputStream("gradle.properties");
-        property.load(fis);
-        fis.close();
-        return property.getProperty(key);
     }
 }

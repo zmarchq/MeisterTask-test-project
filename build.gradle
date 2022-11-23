@@ -39,6 +39,7 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
+
 dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
@@ -54,33 +55,27 @@ dependencies {
             "io.appium:java-client:$appiumVersion",
             "commons-io:commons-io:$commonsIoVersion"
     )
-}
 
-test {
-    if (platform) {
-        jvmArgs += "-Dplatform=${platform}"
-    }
-    if (isRemote) {
-        jvmArgs += "-DisRemote=${isRemote}"
-    }
-}
+    tasks.withType(Test) {
+        systemProperties(System.getProperties())
+        useJUnitPlatform()
 
-
-tasks.withType(Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform() {
-        includeTags(platform)
-    }
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
+        testLogging {
+            lifecycle {
+                events "started", "skipped", "failed", "standard_error", "standard_out"
+            }
         }
     }
-}
 
-task mobileTest (type:Test){
-    useJUnitPlatform() {
-        includeTags(jvmArgs().getSystemProperties().get("platform"))
+    task mobileTest(type: Test) {
+        useJUnitPlatform() {
+            includeTags("mobile")
+        }
+    }
+
+    task webTest(type: Test) {
+        useJUnitPlatform() {
+            includeTags("web")
+        }
     }
 }
