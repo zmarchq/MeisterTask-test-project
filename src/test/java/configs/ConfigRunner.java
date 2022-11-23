@@ -17,6 +17,7 @@ public class ConfigRunner {
    private final String isRemote = getProperty("isRemote");
 
     public void runBeforeAllPlatformConfiguration() {
+        System.out.println(platform);
         switch (platform) {
             case "web":
                 WebDriver driver = new WebDriver();

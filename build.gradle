@@ -57,19 +57,16 @@ dependencies {
 }
 
 test {
-    if(platform) {
+    if (platform) {
         jvmArgs += "-Dplatform=${platform}"
     }
-
     if (isRemote) {
         jvmArgs += "-DisRemote=${isRemote}"
     }
 }
 
 
-
 tasks.withType(Test) {
-
     systemProperties(System.getProperties())
     useJUnitPlatform() {
         includeTags(platform)
@@ -79,5 +76,11 @@ tasks.withType(Test) {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
         }
+    }
+}
+
+task mobileTest (type:Test){
+    useJUnitPlatform() {
+        includeTags(jvmArgs().getSystemProperties().get("platform"))
     }
 }
