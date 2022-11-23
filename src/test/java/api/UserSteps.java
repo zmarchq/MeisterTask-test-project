@@ -6,9 +6,9 @@ import models.AuthError;
 import models.UserData;
 import models.UserListResponse;
 
-import static api.ApiPath.User.*;
+import static configs.api.ApiPath.User.*;
 
-public class UserSteps extends ApiConfiguration {
+public class UserSteps extends Specs {
 
     @Step("Get list of users")
     public UserListResponse getListOfUsers() {

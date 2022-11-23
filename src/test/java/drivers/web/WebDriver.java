@@ -5,7 +5,7 @@ import configs.web.WebConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class WebDriverConfiguration {
+public class WebDriver {
     private final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
     public void configure() {

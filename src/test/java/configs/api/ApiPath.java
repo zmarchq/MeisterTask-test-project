@@ -1,4 +1,4 @@
-package api;
+package configs.api;
 
 public class ApiPath {
     public static final class User {

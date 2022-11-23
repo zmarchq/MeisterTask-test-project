@@ -1,5 +1,6 @@
 package api;
 
+import helpers.CustomApiListener;
 import io.restassured.RestAssured;
 import io.restassured.filter.Filter;
 import io.restassured.http.ContentType;
@@ -8,7 +9,7 @@ import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
 
-public class ApiConfiguration {
+public class Specs {
     private static final String BASE_URI = "https://reqres.in/api";
     private static final Filter customAllureFilter = CustomApiListener.withCustomTemplates();
 

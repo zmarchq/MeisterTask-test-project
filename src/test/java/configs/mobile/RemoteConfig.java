@@ -3,7 +3,10 @@ package configs.mobile;
 import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
-public interface BrowserstackConfig extends Config {
+@Config.Sources({
+        "system:properties",
+        "classpath:mobile.properties"})
+public interface RemoteConfig extends Config {
 
     @Key("browserstack.user")
     String browserStackUser();
@@ -17,18 +20,18 @@ public interface BrowserstackConfig extends Config {
     @Key("browserstack.appUrl")
     String appUrl();
 
-    @Key("browserstack.deviceName")
+    @Key("deviceName")
     String deviceName();
 
-    @Key("browserstack.platformVersion")
+    @Key("platformVersion")
     String platformVersion();
 
-    @Key("browserstack.projectName")
+    @Key("projectName")
     String projectName();
 
-    @Key("browserstack.build")
+    @Key("build")
     String build();
 
-    @Key("browserstack.name")
+    @Key("name")
     String name();
 }

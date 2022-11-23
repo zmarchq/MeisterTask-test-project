@@ -1,9 +1,10 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import pages.web.MainPage;
 
-
+@Tag("web")
 public class RegistrationTest extends TestBase {
 
     @Test
