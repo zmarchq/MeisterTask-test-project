@@ -5,11 +5,10 @@ import configs.web.WebConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class ProjectConfiguration {
+public class WebDriverConfiguration {
     private final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
     public void configure() {
-        System.out.println(config.isRemote());
         Configuration.timeout = config.timeout();
         Configuration.browser = config.getBrowser();
         Configuration.browserSize = config.browserSize();
