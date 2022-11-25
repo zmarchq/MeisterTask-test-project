@@ -1,11 +1,10 @@
 # Test automation demo-project
 
-# <a name="TableOfContents">Table of contents</a>
+## <a name="TableOfContents">Table of contents</a>
 + [Description](#Description)
 + [Tools and technologies](#Technology)
 + [How to run](#Jenkins)
     + [Gradle command](#GradleCommand)
-      + []
     + [Run in Jenkins](#RunInJenkins)
 + [Telegram Notifications](#TelegramNotifications)
 + [Test results report in Allure Report](#AllureReport)
@@ -111,151 +110,19 @@ After the build is done the test results are available in:
 >- <code><strong>*Allure Report*</strong></code>
 >- <code><strong>*Allure TestOps*</strong></code> - results are uploaded there and the automated test-cases can be automatically updated accordingly to the recent changes in the code.
 
+<p  align="center">
+<img src="images/AllureTestOpsResult.png" alt="AllureTestOpsResult" width="950">
+</p>
+
+<p  align="center">
+<img src="images/AllureResults.png" alt="AllureResults" width="950">
+</p>
+
 [Back to the table of contents ⬆](#TableOfContents)
 
 
 # <a name="TelegramNotifications">Telegram Notifications</a>
 Telegram bot sends a brief report to a specified telegram chat by results of each build.
-<p  align="center">
-<img src="images/screens/TelegramNotification.png" alt="TelegramNotification" width="550">
-</p>
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-# <a name="AllureReport">Test results report in [Allure Report](https://jenkins.autotests.cloud/job/C12-vyach_son-bookmate_test/47/allure/)</a>
-
-## Main page
-Main page of Allure report contains the following blocks:
-
->- <code><strong>*ALLURE REPORT*</strong></code> - displays date and time of the test, overall number of launched tests, а также диаграмму с указанием процента и количества успешных, упавших и сломавшихся в процессе выполнения тестов
->- <code><strong>*TREND*</strong></code> - displays trend of running tests for all runs
->- <code><strong>*SUITES*</strong></code> - displays distribution of tests by suites
->- <code><strong>*CATEGORIES*</strong></code> - displays distribution of unsuccessful tests by defect types
-<p align="center">
-  <img src="images/screens//AllureReportMain.png" alt="AllureReportMain" width="950">
-</p>
-
-## List of tests with steps and test artefacts
-On the page the list of the tests grouped by suites with status shown for each test.\
-Full info about each test can be shown: tags, severity, duration, detailed steps.
-
-<p align="center">
-  <img src="images/screens/AllureReportSuites.png" alt="AllureReportSuites" width="1150">
-</p>
-
-Also additional test artifacts are available:
->- Screenshot
->- Page Source
->- Video
->- Browserstack full info link
-
-<p align="left">
-  <img src="images/screens/AllureReportSuites2.png" alt="AllureReportSuites2" width="950">
-</p>
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-# <a name="AllureTestOps">[Allure TestOps](https://allure.autotests.cloud/project/1466/test-cases?treeId=2804) integration</a>
-> The link can be accessed only by authorized users.
-
-## <a name="AllureTestOpsProject">Project in Allure TestOps</a>
-Test-cases in the project are imported and constantly updated from the code,
-so there is no need in complex process of synchronization manual test-cases and autotests.\
-It is enough to create and update an autotest in the code and the test-case in TMS always will be in actual state.\
-Manual test-cases also can be added in TMS in case of need(via web interface or via code).
-<p align="center">
-  <img src="images/screens/AllureTestOpsTests.gif" alt="AllureTestOpsTests" width="1050">
-</p>
-
-```mermaid
-stateDiagram-v2
-state "Test created/updated in the code" as A
-state "Build in Jenkins is triggered on push or started manually" as B
-state "Jenkins build is done" as C
-state "Allure TestOps launch related to the build marked as closed" as D
-state "All executed test-cases are automatically created/updated according to the code" as E
-[*] --> A
-A --> B
-B --> C
-C --> D
-D --> E
-E --> A
-```
-
-## <a name="AllureTestOpsStartTests">Ability to start a run of custom set of tests from Allure TestOps</a>
-Any person not related to autotest creation can select a set of tests, environment parameter(RunIn) and start a run.\
-Allure TestOps run will be created, Jenkins job triggered with correct parameters. And results of the job will be seamlessly integrated into Allure TestOps.
-<p align="center">
-  <img src="images/screens/AllureTestOpsSelectionOfTests.gif" alt="AllureTestOpsSelectionOfTests" width="1050">
-</p>
-
-As soon as the Jenkins job is done, corresponding tests get their statuses. A tester can finish manual tests(if any) and click "Close launch".
-
-<p align="center">
-  <img src="images/screens/AllureTestOpsFinishedRunClickStop.png" alt="AllureTestOpsFinishedRunClickStop" width="1250">
-</p>
-
-> After that all these test-cases(names, steps, tags etc.) will be updated according to the recent code changes.
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-## <a name="Dashboards">Dashboards</a>
-Automation trends charts, distribution tests by some different parameters etc.:
-<p align="center">
-  <img src="images/screens/AllureTestOpsDashboardsOverview.png" alt="AllureTestOpsDashboardsOverview" width="1050">
-</p>
-
-<p align="center">
-  <img src="images/screens/AllureTestOpsDashboardsAutomation.png" alt="AllureTestOpsDashboardsAutomation" width="1050">
-</p>
-
-<p align="center">
-  <img src="images/screens/AllureTestOpsDashboardsMembers.png" alt="AllureTestOpsDashboardsMembers" width="1050">
-</p>
-
-<p align="center">
-  <img src="images/screens/AllureTestOpsDashboardsAdditional.png" alt="AllureTestOpsDashboardsAdditional" width="1050">
-</p>
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-## <a name="Defects">Defects</a>
-Knows defects are automatically recognized by defined patterns for test fails in further launches.
-<p align="center">
-  <img src="images/screens/AllureTestOpsDefects.png" alt="AllureTestOpsDefects" width="1050">
-</p>
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-
-# <a name="GithubWebhooks">GitHub webhooks</a>
-Each push to the repository triggers 3 builds in Jenkins:
-```bash
-gradle clean test -Dtag=API
-```
-```bash
-gradle clean test -Dtag=Web -DrunIn=browser_selenoid
-```
-```bash
-gradle clean test -Dtag=Android -DrunIn=android_browserstack
-```
-This way we can find problems earlier and always have actual state of test-cases in Allure TestOps.
-<p align="center">
-  <img src="images/screens/GithubWebhooks1.png" alt="GithubWebhooks" width="1050">
-</p>
-
-<p align="center">
-  <img src="images/screens/JenkinsRemoteBuildTrigerring.png" alt="JenkinsRemoteBuildTrigerring" width="1050">
-</p>
-
-
-[Back to the table of contents ⬆](#TableOfContents)
-
-
-# <a name="JiraIntegration">Jira integration</a>
-<p align="center">
-  <img src="images/screens/JiraIntegration.png" alt="JiraIntegration" width="1050">
-</p>
 
 [Back to the table of contents ⬆](#TableOfContents)
 
@@ -263,15 +130,6 @@ This way we can find problems earlier and always have actual state of test-cases
 # <a name="Video">Video of running tests</a>
 
 
-https://user-images.githubusercontent.com/103368614/181073019-19e5e4f2-f28e-4c67-a2f5-d5e209951d77.mp4
-
-
-https://user-images.githubusercontent.com/103368614/181072201-6a35966f-f7b4-4fac-9319-10d34b07b90a.mp4
-
-
-
-
-
-
+https://selenoid.autotests.cloud/video/b83f2eac5a5dd807ec65093bda0751b4.mp4
 
 [Back to the table of contents ⬆](#TableOfContents)
