@@ -2,7 +2,6 @@ package pages.web;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -18,7 +17,6 @@ public class TrialPage {
 
     @Step("Set firstname {firstname}")
     public TrialPage setFirstname(String firstname) {
-        Selenide.sleep(100000);
         $(Selectors.byName("firstname")).sendKeys(firstname);
         return this;
     }
