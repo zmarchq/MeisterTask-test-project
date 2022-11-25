@@ -9,18 +9,17 @@ import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
+
 public class TestBase {
-
     private static final ConfigRunner runner = new ConfigRunner();
-
     @BeforeAll
     public static void setUp() {
-        addListener("AllureSelenide", new AllureSelenide());
+
         runner.runBeforeAllPlatformConfiguration();
     }
-
     @BeforeEach
     public void startDriver() {
+        addListener("AllureSelenide", new AllureSelenide());
         open();
     }
 

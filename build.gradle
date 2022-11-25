@@ -75,7 +75,7 @@ dependencies {
 
     task webTest(type: Test) {
         useJUnitPlatform() {
-            includeTags("web")
+            includeTags("web", "api")
         }
     }
 }

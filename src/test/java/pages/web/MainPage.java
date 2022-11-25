@@ -19,4 +19,10 @@ public class MainPage {
         $(Selectors.byText("Зарегистрироваться")).click();
         return new RegistrationPage();
     }
+
+    @Step("Open Prices page")
+    public PricePage clickPrice() {
+        $(Selectors.byText("Цены")).click();
+        return new PricePage();
+    }
 }

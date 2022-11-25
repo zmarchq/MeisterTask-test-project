@@ -1,10 +1,11 @@
-package api;
+package api.steps;
 
+import api.steps.Specs;
 import io.qameta.allure.Step;
-import models.AuthBody;
-import models.AuthError;
-import models.UserData;
-import models.UserListResponse;
+import api.request.AuthBody;
+import api.response.AuthError;
+import api.models.UserData;
+import api.response.UserListResponse;
 
 import static configs.api.ApiPath.User.*;
 

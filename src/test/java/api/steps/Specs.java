@@ -1,5 +1,6 @@
-package api;
+package api.steps;
 
+import configs.api.ApiPath;
 import helpers.CustomApiListener;
 import io.restassured.RestAssured;
 import io.restassured.filter.Filter;
@@ -10,7 +11,6 @@ import io.restassured.specification.ResponseSpecification;
 import static io.restassured.RestAssured.with;
 
 public class Specs {
-    private static final String BASE_URI = "https://reqres.in/api";
     private static final Filter customAllureFilter = CustomApiListener.withCustomTemplates();
 
     public RequestSpecification givenSpec(String requestPath) {
@@ -23,7 +23,7 @@ public class Specs {
         return with()
                 .log().all()
                 .filter(customAllureFilter)
-                .baseUri(BASE_URI)
+                .baseUri(ApiPath.BASE_URI)
                 .basePath(requestPath)
                 .contentType(ContentType.JSON);
     }

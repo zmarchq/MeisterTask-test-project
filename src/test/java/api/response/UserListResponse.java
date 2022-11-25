@@ -1,7 +1,9 @@
-package models;
+package api.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import api.models.Support;
+import api.models.UserData;
 
 import java.util.List;
 
