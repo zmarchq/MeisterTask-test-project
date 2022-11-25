@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:local.properties"}
+        "classpath:web.properties"}
 )
 public interface WebConfig extends Config {
     @Key("browser")

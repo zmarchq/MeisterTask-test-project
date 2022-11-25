@@ -1,25 +1,30 @@
 package tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.web.WebDriverConfiguration;
-import helpers.Attach;
+import configs.ConfigRunner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+
 
 public class TestBase {
+    private static final ConfigRunner runner = new ConfigRunner();
     @BeforeAll
     public static void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        WebDriverConfiguration webDriverConfiguration = new WebDriverConfiguration();
-        webDriverConfiguration.configure();
+
+        runner.runBeforeAllPlatformConfiguration();
+    }
+    @BeforeEach
+    public void startDriver() {
+        addListener("AllureSelenide", new AllureSelenide());
+        open();
     }
 
     @AfterEach
     public void addAttachments() {
-        Attach.screenshotAs("LastScreenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs(); //Не работает с firefox!
-        Attach.addVideo();
+        runner.runAfterEachPlatformConfig();
     }
 }
