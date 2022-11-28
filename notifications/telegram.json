@@ -1,10 +1,10 @@
 {
   "base": {
-    "project": "demo-test-project",
-    "environment": "INT",
-    "comment": "test_run",
-    "reportLink": "",
-    "language": "ru",
+    "project": "demo-project",
+    "environment": "test",
+    "comment": "test_run@zhanna",
+    "reportLink": "link",
+    "language": "en",
     "allureFolder": "build/reports/allure-report/allureReport",
     "enableChart": true
   },
