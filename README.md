@@ -124,6 +124,10 @@ After the build is done the test results are available in:
 # <a name="TelegramNotifications">Telegram Notifications</a>
 Telegram bot sends a brief report to a specified telegram chat by results of each build.
 
+<p  align="center">
+<img src="images/TelegramReport.png" alt="TelegramReport" width="950">
+</p>
+
 [Back to the table of contents ⬆](#TableOfContents)
 
 
