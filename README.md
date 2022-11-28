@@ -108,10 +108,10 @@ A parametrized Jenkins job can be launched with needed ***platform***, ***isRemo
 
 After the build is done the test results are available in:
 >- <code><strong>*Allure Report*</strong></code>
->- <code><strong>*Allure TestOps*</strong></code> - results are uploaded there and the automated test-cases can be automatically updated accordingly to the recent changes in the code.
-
+>- <code><strong>*Allure TestOps*</strong></code>
+>- 
 <p  align="center">
-<img src="images/AllureTestOpsResult.png" alt="AllureTestOpsResult" width="950">
+<img src="images/AllureTestOpsResult.png" alt="AllureTestOpsResult" width="1480">
 </p>
 
 <p  align="center">
@@ -123,6 +123,10 @@ After the build is done the test results are available in:
 
 # <a name="TelegramNotifications">Telegram Notifications</a>
 Telegram bot sends a brief report to a specified telegram chat by results of each build.
+
+<p  align="center">
+<img src="images/TelegramReport.png" alt="TelegramReport" width="300">
+</p>
 
 [Back to the table of contents ⬆](#TableOfContents)
 

@@ -1,11 +1,11 @@
 {
   "base": {
-    "project": "demo-test-project",
-    "environment": "INT",
-    "comment": "test_run",
+    "project": "some project",
+    "environment": "some env",
+    "comment": "Any text here",
     "reportLink": "",
-    "language": "ru",
-    "allureFolder": "build/reports/allure-report/allureReport",
+    "language": "en",
+    "allureFolder": "build/allure-report/",
     "enableChart": true
   },
   "telegram": {
