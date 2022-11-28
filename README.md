@@ -111,7 +111,7 @@ After the build is done the test results are available in:
 >- <code><strong>*Allure TestOps*</strong></code> - results are uploaded there and the automated test-cases can be automatically updated accordingly to the recent changes in the code.
 
 <p  align="center">
-<img src="images/AllureTestOpsResult.png" alt="AllureTestOpsResult" width="950">
+<img src="images/AllureTestOpsResult.png" alt="AllureTestOpsResult" width="1200">
 </p>
 
 <p  align="center">
@@ -125,7 +125,7 @@ After the build is done the test results are available in:
 Telegram bot sends a brief report to a specified telegram chat by results of each build.
 
 <p  align="center">
-<img src="images/TelegramReport.png" alt="TelegramReport" width="950">
+<img src="images/TelegramReport.png" alt="TelegramReport" width="550">
 </p>
 
 [Back to the table of contents ⬆](#TableOfContents)
