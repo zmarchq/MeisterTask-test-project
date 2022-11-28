@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "demo-project",
-    "environment": "test",
-    "comment": "test_run@zhanna",
-    "reportLink": "link",
+    "project": "some project",
+    "environment": "some env",
+    "comment": "Any text here",
+    "reportLink": "",
     "language": "en",
     "allureFolder": "build/allure-report/",
     "enableChart": true
